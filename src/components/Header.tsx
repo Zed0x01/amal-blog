@@ -7,23 +7,23 @@ const Header = () => {
   const handle = () => {
     console.log("hello");
     const body = document.querySelector("body");
-    if (body.getAttribute("data-theme")) {
+    if (body?.getAttribute("data-theme")) {
       body.removeAttribute("data-theme");
       setDark("Dark Mode");
     } else {
       setDark("Light Mode");
-      body.setAttribute("data-theme", "dark");
+      body?.setAttribute("data-theme", "dark");
     }
   };
 
   const showMenu = () => {
     const menu = document.querySelector(".nav__linksx");
-    if (menu.classList.contains("show")) {
+    if (menu?.classList.contains("show")) {
       menu.classList.add("hide");
       menu.classList.remove("show");
     } else {
-      menu.classList.add("show");
-      menu.classList.remove("hide");
+      menu?.classList.add("show");
+      menu?.classList.remove("hide");
     }
   };
 

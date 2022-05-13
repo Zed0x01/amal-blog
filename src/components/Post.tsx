@@ -1,9 +1,26 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-const Post = ({ posts }) => {
+interface Post{
+  id:string;
+  imgUrl:string;
+  publishDate:string;
+  title:string;
+  content:string;
+  author:{
+    username:string;
+    id:string;
+  };
+}
+
+interface props{
+  posts: Post[];
+}
+
+const Post = ({ posts } : props) => {
+  
   const { id } = useParams();
-  const post = posts.find((post) => post.id.toString() === id);
+  const post = posts.find((post ) => post.id === id);
   const index = posts.findIndex((obj) => {
     return obj.id.toString() === id;
   });

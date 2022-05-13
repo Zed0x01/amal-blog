@@ -1,13 +1,38 @@
 import React from "react";
 import Figure from "./Figure";
 
-const ContetSection = ({ posts, main }) => {
+
+interface Tag{
+  id:string;
+  name:string;
+}
+interface Post{
+  id:string;
+  imgUrl:string;
+  publishDate:string;
+  tags:Tag[];
+  title:string;
+  content:string;
+  author:{
+    username:string;
+    id:string;
+  };
+}
+
+
+interface props{
+  posts: Post[];
+  main:boolean;
+}
+
+const ContetSection = ({ posts, main } : props) => {
+
   return (
     <>
       {main && (
         <div className="left__content main">
           {posts.map((post) => (
-            <Figure post={post} key={post.id}/>
+            <Figure post={post} key={post.id} featured={false}/>
           ))}
         </div>
       )}
@@ -32,10 +57,10 @@ const ContetSection = ({ posts, main }) => {
         <div className="border popularCategories">
           <h1>Popular Categories</h1>
           <div className="cats">
-            {posts.map((post) =>
-              post.tags.map((tag) => (
-                <p className="tag" key={tag.id}>
-                  {tag.name}
+            {posts.map((post ) =>
+              (post.tags).map((tags)  => (
+                <p className="tag" key={tags.id}>
+                  {tags.name}
                 </p>
               ))
             )}
