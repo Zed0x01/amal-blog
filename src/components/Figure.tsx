@@ -1,28 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-interface Post{
-  id:string;
-  imgUrl:string;
-  publishDate:string;
-  title:string;
-  content:string;
-  author:{
-    username:string;
-    id:string;
+interface Post {
+  id: string;
+  imgUrl: string;
+  publishDate: string;
+  title: string;
+  content: string;
+  author: {
+    username: string;
+    id: string;
   };
 }
 
-interface props{
+interface props {
   post: Post;
-  featured:boolean;
+  featured: boolean;
 }
-const Figure = ({ post, featured } : props) => {
+const Figure = ({ post, featured }: props) => {
   return (
     <div className="figure" key={post.id}>
       <img src={post.imgUrl} alt="temp1" />
       <div className="data">
-        <h1 key={featured === true ?  post.author.id : 30 }>
+        <h1 key={featured === true ? post.author.id : 30}>
           By <span>{featured !== true ? post?.author.username : ""}</span> At{" "}
           <span>{post.publishDate}</span>
         </h1>

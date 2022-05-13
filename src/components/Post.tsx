@@ -1,31 +1,43 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-interface Post{
-  id:string;
-  imgUrl:string;
-  publishDate:string;
-  title:string;
-  content:string;
-  author:{
-    username:string;
-    id:string;
+interface Post {
+  id: string;
+  imgUrl: string;
+  publishDate: string;
+  title: string;
+  content: string;
+  author: {
+    username: string;
+    id: string;
   };
 }
 
-interface props{
+interface props {
   posts: Post[];
 }
 
-const Post = ({ posts } : props) => {
-  
+const Post = ({ posts }: props) => {
   const { id } = useParams();
-  const post = posts.find((post ) => post.id === id);
   const index = posts.findIndex((obj) => {
     return obj.id.toString() === id;
   });
-  const Next = posts[index + 1]?.id;
-  const Previous = posts[index - 1]?.id;
+  const post = posts[index];
+
+  const Next = () => {
+    if (index + 1 >= posts.length) {
+      return posts[index - posts.length + 1]?.id;
+    } else {
+      return posts[index + 1]?.id;
+    }
+  };
+  const Previous = () => {
+    if (index - 1 <= -1) {
+      return posts[index + posts.length - 1]?.id;
+    } else {
+      return posts[index - 1]?.id;
+    }
+  };
 
   return (
     <>
@@ -41,7 +53,7 @@ const Post = ({ posts } : props) => {
         <p>{post?.content}</p>
         <div className="buttons">
           <Link
-            to={`/post/${Previous}`}
+            to={`/post/${Previous()}`}
             className="Previous_post"
             onClick={() => {
               window.scrollTo(0, 0);
@@ -50,7 +62,7 @@ const Post = ({ posts } : props) => {
             Previous
           </Link>
           <Link
-            to={`/post/${Next}`}
+            to={`/post/${Next()}`}
             className="Next_post"
             onClick={() => {
               window.scrollTo(0, 0);

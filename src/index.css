@@ -9,7 +9,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-body{
+body {
   transition: all 1s;
 }
 :root {
@@ -22,7 +22,9 @@ body{
   --color-light: #fff;
   --feature-light: #111827;
 }
-h1,p,a{
+h1,
+p,
+a {
   color: var(--color-light);
 }
 a {

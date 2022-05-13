@@ -44,7 +44,7 @@ function App() {
                 <div className="posts">
                   <Post posts={posts} />
                 </div>
-                <ContetSection posts={posts} main={false}/>
+                <ContetSection posts={posts} main={false} />
               </div>
             </div>
           }

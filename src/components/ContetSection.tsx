@@ -1,38 +1,35 @@
 import React from "react";
 import Figure from "./Figure";
 
-
-interface Tag{
-  id:string;
-  name:string;
+interface Tag {
+  id: string;
+  name: string;
 }
-interface Post{
-  id:string;
-  imgUrl:string;
-  publishDate:string;
-  tags:Tag[];
-  title:string;
-  content:string;
-  author:{
-    username:string;
-    id:string;
+interface Post {
+  id: string;
+  imgUrl: string;
+  publishDate: string;
+  tags: Tag[];
+  title: string;
+  content: string;
+  author: {
+    username: string;
+    id: string;
   };
 }
 
-
-interface props{
+interface props {
   posts: Post[];
-  main:boolean;
+  main: boolean;
 }
 
-const ContetSection = ({ posts, main } : props) => {
-
+const ContetSection = ({ posts, main }: props) => {
   return (
     <>
       {main && (
         <div className="left__content main">
           {posts.map((post) => (
-            <Figure post={post} key={post.id} featured={false}/>
+            <Figure post={post} key={post.id} featured={false} />
           ))}
         </div>
       )}
@@ -48,7 +45,7 @@ const ContetSection = ({ posts, main } : props) => {
         <div className="featured">
           <h1 className="featuredTitle">FEATURED</h1>
           {posts.map((post) => (
-            <Figure post={post} featured key={post.id}/>
+            <Figure post={post} featured key={post.id} />
           ))}
         </div>
         <div className="border adArea1">
@@ -57,8 +54,8 @@ const ContetSection = ({ posts, main } : props) => {
         <div className="border popularCategories">
           <h1>Popular Categories</h1>
           <div className="cats">
-            {posts.map((post ) =>
-              (post.tags).map((tags)  => (
+            {posts.map((post) =>
+              post.tags.map((tags) => (
                 <p className="tag" key={tags.id}>
                   {tags.name}
                 </p>
