@@ -1,13 +1,13 @@
 import React from "react";
 import Figure from "./Figure";
-import { PostDetails } from '../types/PostDetails'
+import { IPost } from '../types/IPost'
 
-interface props {
-  posts: PostDetails[];
+interface Props {
+  posts: IPost[];
   main: boolean;
 }
 
-const ContetSection = ({ posts, main }: props) => {
+const ContetSection = ({ posts, main }: Props) => {
   return (
     <>
       {main && (

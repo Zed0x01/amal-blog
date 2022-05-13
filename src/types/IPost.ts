@@ -1,6 +1,6 @@
 import { Tag } from "./Tag";
 
-export interface PostDetails {
+export interface IPost {
     id: string;
     imgUrl: string;
     publishDate: string;

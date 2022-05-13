@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import {PostDetails} from '../types/PostDetails'
+import {IPost} from '../types/IPost'
 
 
-interface props {
-  posts: PostDetails[];
+interface Props {
+  posts: IPost[];
 }
 
-const Post = ({ posts }: props) => {
+const Post = ({ posts }: Props) => {
   const { id } = useParams();
   const index = posts.findIndex((obj) => {
     return obj.id === id;
