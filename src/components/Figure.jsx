@@ -11,7 +11,13 @@ const Figure = ({ ele, featured }) => {
           <span>{ele.publishDate}</span>
         </h1>
         <p className="title">{ele.title}</p>
-        <Link className="readMore_link" to={`/post/${ele.id}`}>
+        <Link
+          className="readMore_link"
+          to={`/post/${ele.id}`}
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
           {" "}
           Read More...
         </Link>
