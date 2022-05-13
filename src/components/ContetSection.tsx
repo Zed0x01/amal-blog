@@ -1,25 +1,9 @@
 import React from "react";
 import Figure from "./Figure";
-
-interface Tag {
-  id: string;
-  name: string;
-}
-interface Post {
-  id: string;
-  imgUrl: string;
-  publishDate: string;
-  tags: Tag[];
-  title: string;
-  content: string;
-  author: {
-    username: string;
-    id: string;
-  };
-}
+import { PostDetails } from '../types/PostDetails'
 
 interface props {
-  posts: Post[];
+  posts: PostDetails[];
   main: boolean;
 }
 

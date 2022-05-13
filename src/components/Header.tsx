@@ -5,14 +5,12 @@ const Header = () => {
   const [dark, setDark] = useState("Dark Mode");
 
   const handle = () => {
-    console.log("hello");
-    const body = document.querySelector("body");
-    if (body?.getAttribute("data-theme")) {
-      body.removeAttribute("data-theme");
+    if (document.body.getAttribute("data-theme")) {
+      document.body.removeAttribute("data-theme");
       setDark("Dark Mode");
     } else {
       setDark("Light Mode");
-      body?.setAttribute("data-theme", "dark");
+      document.body.setAttribute("data-theme", "dark");
     }
   };
 

@@ -1,41 +1,31 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import {PostDetails} from '../types/PostDetails'
 
-interface Post {
-  id: string;
-  imgUrl: string;
-  publishDate: string;
-  title: string;
-  content: string;
-  author: {
-    username: string;
-    id: string;
-  };
-}
 
 interface props {
-  posts: Post[];
+  posts: PostDetails[];
 }
 
 const Post = ({ posts }: props) => {
   const { id } = useParams();
   const index = posts.findIndex((obj) => {
-    return obj.id.toString() === id;
+    return obj.id === id;
   });
   const post = posts[index];
 
   const Next = () => {
-    if (index + 1 >= posts.length) {
-      return posts[index - posts.length + 1]?.id;
+    if (index < posts.length -1 ) {
+      return posts[index + 1].id;
     } else {
-      return posts[index + 1]?.id;
+      return null;
     }
   };
   const Previous = () => {
-    if (index - 1 <= -1) {
-      return posts[index + posts.length - 1]?.id;
-    } else {
+    if (index - 1 > -1) {
       return posts[index - 1]?.id;
+    } else {
+      return null;
     }
   };
 
@@ -52,6 +42,7 @@ const Post = ({ posts }: props) => {
         <h1 className="body__title">{post?.title}</h1>
         <p>{post?.content}</p>
         <div className="buttons">
+          { Previous() &&
           <Link
             to={`/post/${Previous()}`}
             className="Previous_post"
@@ -60,8 +51,8 @@ const Post = ({ posts }: props) => {
             }}
           >
             Previous
-          </Link>
-          <Link
+          </Link> }
+          { Next() &&<Link
             to={`/post/${Next()}`}
             className="Next_post"
             onClick={() => {
@@ -69,7 +60,7 @@ const Post = ({ posts }: props) => {
             }}
           >
             Next
-          </Link>
+          </Link> }
         </div>
       </div>
     </>
