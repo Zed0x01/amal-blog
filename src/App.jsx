@@ -6,7 +6,7 @@ import Post from "./components/Post";
 import Error from "./components/Error";
 import ContetSection from "./components/ContetSection";
 import React, { useState, useEffect } from "react";
-import axios from "./components/axios";
+import axios from "./axios";
 import "./App.css";
 
 function App() {

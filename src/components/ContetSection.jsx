@@ -6,8 +6,8 @@ const ContetSection = ({ posts, main }) => {
     <>
       {main && (
         <div className="left__content main">
-          {posts.map((ele) => (
-            <Figure ele={ele} />
+          {posts.map((post) => (
+            <Figure post={post} key={post.id}/>
           ))}
         </div>
       )}
@@ -22,8 +22,8 @@ const ContetSection = ({ posts, main }) => {
         </div>
         <div className="featured">
           <h1 className="featuredTitle">FEATURED</h1>
-          {posts.map((ele) => (
-            <Figure ele={ele} featured />
+          {posts.map((post) => (
+            <Figure post={post} featured key={post.id}/>
           ))}
         </div>
         <div className="border adArea1">
@@ -32,8 +32,8 @@ const ContetSection = ({ posts, main }) => {
         <div className="border popularCategories">
           <h1>Popular Categories</h1>
           <div className="cats">
-            {posts.map((ele) =>
-              ele.tags.map((tag) => (
+            {posts.map((post) =>
+              post.tags.map((tag) => (
                 <p className="tag" key={tag.id}>
                   {tag.name}
                 </p>
@@ -48,16 +48,16 @@ const ContetSection = ({ posts, main }) => {
           <h1>Follow Us</h1>
           <div className="icons">
             <a href="https://www.facebook.com/sherifashraf404/">
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <a href="https://twitter.com/Sherifashraf177">
-              <i class="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-twitter"></i>
             </a>
             <a href="https://youtube.com/">
-              <i class="fa-brands fa-youtube"></i>
+              <i className="fa-brands fa-youtube"></i>
             </a>
             <a href="https://github.com/Zed0x01">
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </a>
           </div>
         </div>

@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="up__footer">
           <div className="list__footer">
             <div className="footer__logo">
-              <svg viewBox="0 0 400 400" class="header__logo">
+              <svg viewBox="0 0 400 400" className="header__logo">
                 <path d="M 100 100 L 300 100 L 200 300 z"></path>
               </svg>
               <h1>Amal Blog</h1>
@@ -17,16 +17,16 @@ const Footer = () => {
             </p>
             <div className="footer__icons">
               <a href="/">
-                <i class="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
               </a>
               <a href="/">
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </a>
               <a href="/">
-                <i class="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube"></i>
               </a>
               <a href="/">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>
             </div>
           </div>

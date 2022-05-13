@@ -2,23 +2,22 @@ import React, { useState } from "react";
 
 const Header = () => {
   const [navbar, setNavbar] = useState("transparent");
-  const [dark, setDark] = useState("Light Mode");
+  const [dark, setDark] = useState("Dark Mode");
 
   const handle = () => {
     console.log("hello");
     const body = document.querySelector("body");
     if (body.getAttribute("data-theme")) {
       body.removeAttribute("data-theme");
-      setDark("Light Mode");
-    } else {
       setDark("Dark Mode");
+    } else {
+      setDark("Light Mode");
       body.setAttribute("data-theme", "dark");
     }
   };
 
   const showMenu = () => {
     const menu = document.querySelector(".nav__linksx");
-    console.log("hey");
     if (menu.classList.contains("show")) {
       menu.classList.add("hide");
       menu.classList.remove("show");
@@ -68,7 +67,7 @@ const Header = () => {
           </button>
         </div>
         <i
-          class="fa-solid fa-bars burger__bar"
+          className="fa-solid fa-bars burger__bar"
           onClick={() => {
             showMenu();
           }}
